@@ -1,0 +1,50 @@
+[
+  {
+    "case_id": "CASE-001",
+    "case_type": "commercial_dispute",
+    "days_until_deadline": 20,
+    "document_status": "complete",
+    "evidence_strength": "strong",
+    "conflict_status": "none",
+    "exact_specialist_available": true,
+    "related_specialist_available": true,
+    "returning_client": false,
+    "document_available_in_archive": false
+  },
+  {
+    "case_id": "CASE-002",
+    "case_type": "contract_dispute",
+    "days_until_deadline": 5,
+    "document_status": "missing_secondary",
+    "evidence_strength": "strong",
+    "conflict_status": "suspected",
+    "exact_specialist_available": true,
+    "related_specialist_available": true,
+    "returning_client": true,
+    "document_available_in_archive": true
+  },
+  {
+    "case_id": "CASE-003",
+    "case_type": "employment",
+    "days_until_deadline": 2,
+    "document_status": "missing_critical",
+    "evidence_strength": "strong",
+    "conflict_status": "confirmed",
+    "exact_specialist_available": true,
+    "related_specialist_available": true,
+    "returning_client": false,
+    "document_available_in_archive": false
+  },
+  {
+    "case_id": "CASE-004",
+    "case_type": "tax",
+    "days_until_deadline": 1,
+    "document_status": "complete",
+    "evidence_strength": "weak",
+    "conflict_status": "suspected",
+    "exact_specialist_available": false,
+    "related_specialist_available": true,
+    "returning_client": false,
+    "document_available_in_archive": false
+  }
+]
