@@ -40,8 +40,3 @@ Legal case evaluation requires multi-step conditional reasoning. The next evalua
 
 ---
 
-## 🚀 How to Run
-
-1. **Clone the repository and install dependencies:**
-   ```bash
-   pip install -r requirements.txt
