@@ -15,7 +15,7 @@ The law firm follows the following business rules when evaluating and assigning 
 - Otherwise, the case is **escalated**.
 
 ### Rule 4 – Client History
-- If the client is **returning** and the required document already exists in the firm's records, the existing valid document is  **reused** instead of requesting it again.
+- If the client is **returning** and the required document already exists in the firm's records, the existing valid documen t is  **reused** instead of requesting it again.
 
 
 
