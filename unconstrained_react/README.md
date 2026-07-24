@@ -1,27 +1,14 @@
-# ⚖️ Unconstrained ReAct Agent
+# Unconstrained ReAct Agent
 
-An AI-powered legal case intake evaluation system built using the **ReAct Agent Architecture** and **Google Gemini API**.
+## Overview
 
-The agent is capable of reasoning step-by-step, deciding which tools to use, and producing a final legal intake decision based on the available case information.
+This project implements an Unconstrained ReAct Agent for a law firm's case intake evaluation process.
 
----
-
-# 📌 Overview
-
-This project simulates the **Case Intake Evaluation** process inside a law firm.
-
-Instead of following a fixed workflow, the agent can freely decide:
-
-- Which tool to call
-- When to call it
-- Whether to call one or multiple tools
-- When enough information has been collected
-
-After reasoning over the available evidence, the agent returns a structured JSON decision.
+The agent uses the Google Gemini API to analyze legal cases and decide which tools to use before making a final decision. Unlike constrained agents, there is no predefined order for calling tools. The agent selects the necessary tools dynamically based on the case information.
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
 ```
 unconstrained_react/
@@ -32,27 +19,28 @@ unconstrained_react/
 ├── prompts.py
 ├── tools.py
 ├── requirements.txt
+├── .env.example
 └── README.md
 ```
 
 ---
 
-# 🛠 Available Tools
+## Available Tools
 
-The agent has access to the following tools:
+The agent can use the following tools during evaluation:
 
-- 📄 Document Evaluation
-- ⚖️ Conflict of Interest Evaluation
-- 👨‍⚖️ Specialist Availability Evaluation
-- 📁 Client History Evaluation
+- Document Evaluation
+- Conflict of Interest Evaluation
+- Specialist Availability Evaluation
+- Client History Evaluation
 
-Unlike constrained agents, **there is no predefined order** for using these tools.
+The agent may use one tool, multiple tools, or skip unnecessary tools depending on the case.
 
 ---
 
-# ✅ Possible Decisions
+## Possible Decisions
 
-The agent must return **exactly one** of the following decisions:
+The final decision will always be one of the following:
 
 - Accept Case
 - Provisionally Accept and Request Missing Documents
@@ -63,18 +51,7 @@ The agent must return **exactly one** of the following decisions:
 
 ---
 
-# 🤖 Agent Workflow
-
-1. Receive case information.
-2. Analyze the case.
-3. Decide which tool(s) to call.
-4. Collect the returned information.
-5. Continue reasoning if needed.
-6. Produce the final JSON decision.
-
----
-
-# 📦 Installation
+## Requirements
 
 Install the required packages:
 
@@ -84,59 +61,46 @@ pip install -r requirements.txt
 
 ---
 
-# 🔑 Environment Variables
+## Environment Variables
 
-Create a `.env` file in the project directory.
+Create a `.env` file and add your Gemini API key:
 
-Example:
-
-```env
+```text
 GEMINI_API_KEY=YOUR_API_KEY
 ```
 
+An example is provided in `.env.example`.
+
 ---
 
-# ▶️ Run the Project
+## Running the Project
+
+Run the project using:
 
 ```bash
 python main.py
 ```
 
-Enter a Case ID when prompted.
-
-Example:
-
-```
-Enter Case ID:
-CASE-001
-```
+Enter a valid Case ID when prompted. The agent will evaluate the case and return the final decision as a JSON object.
 
 ---
 
-# 📤 Example Output
+## Example Output
 
 ```json
 {
-  "decision": "Accept Case",
-  "flags": [],
-  "reasoning": "All required checks passed successfully."
+    "decision": "Accept Case",
+    "flags": [],
+    "reasoning": "All required checks passed successfully."
 }
 ```
 
 ---
 
-# 🧠 Technologies Used
+## Technologies Used
 
 - Python
 - Google Gemini API
 - ReAct Agent Architecture
 - Function Calling
 - JSON
-
----
-
-# 👩‍💻 Author
-
-Case Intake Evaluation Project
-
-Faculty AI Agent Architectures Assignment
