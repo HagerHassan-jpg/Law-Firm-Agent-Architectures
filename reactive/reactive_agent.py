@@ -15,7 +15,7 @@ class Case:
     returning_client: bool
     document_available_in_archive: bool
 
-# variables
+# Allowed decisions
 ACCEPT = "Accept Case"
 PROVISIONAL_ACCEPT = "Provisionally Accept and Request Missing Documents"
 REQUEST_INFO = "Request More Information"
