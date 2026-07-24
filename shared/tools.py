@@ -2,10 +2,10 @@
 import json
 from pathlib import Path
 
-DATA_PATH = Path(__file__).resolve().parent.parent  / "test_cases.json"
+DATA_PATH = Path(__file__).resolve().parent  / "test_cases.json"
 
 
-def load_case(case_id):
+def load_case(case_id: dict):
 
     with open(DATA_PATH, "r", encoding="utf-8") as file:
         cases = json.load(file)
@@ -19,7 +19,7 @@ def load_case(case_id):
 
 
 #1
-def evaluate_documents(case):
+def evaluate_documents(case: dict):
 
     if case is None:
         return {"error": "Case not found"}
@@ -32,7 +32,7 @@ def evaluate_documents(case):
 
 
 #2
-def evaluate_conflict(case):
+def evaluate_conflict(case: dict):
 
     if case is None:
         return {"error": "Case not found"}
@@ -44,7 +44,7 @@ def evaluate_conflict(case):
 
 
 #3
-def evaluate_specialist(case):
+def evaluate_specialist(case: dict):
 
     if case is None:
         return {"error": "Case not found"}
@@ -56,7 +56,7 @@ def evaluate_specialist(case):
     }
 
 #4
-def evaluate_client_history(case):
+def evaluate_client_history(case: dict):
 
     if case is None:
         return {"error": "Case not found"}
