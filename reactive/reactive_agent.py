@@ -133,29 +133,38 @@ def evaluate_case(case: Case) -> Dict[str, Any]:
         "All checks passed; case accepted."
     )
 
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
- #  (عشان اجرب المودل بس )  
- 
+from shared.tools import load_case
+
 if __name__ == "__main__":
-    sample = Case(
-        case_id="C-DEMO",
-        case_type="commercial_dispute",
-        days_until_deadline=5,
-        document_status="missing_secondary",
-        evidence_strength="strong",
-        conflict_status="suspected",
-        exact_specialist_available=True,
-        related_specialist_available=True,
-        returning_client=False,
-        document_available_in_archive=False,
-    )
-    result = evaluate_case(sample)
+    test_ids = ["CASE-001", "CASE-002", "CASE-003", "CASE-004"]
 
-print("=" * 50)
-print("Case Evaluation Result")
-print("=" * 50)
-print(f"Case ID   : {result['case_id']}")
-print(f"Decision  : {result['decision']}")
-print(f"Flags     : {', '.join(result['flags']) if result['flags'] else 'None'}")
-print(f"Reasoning : {result['reasoning']}")
-print("=" * 50)
+    for case_id in test_ids:
+        case_data = load_case(case_id)
+
+        sample = Case(
+            case_id=case_data["case_id"],
+            case_type=case_data["case_type"],
+            days_until_deadline=case_data["days_until_deadline"],
+            document_status=case_data["document_status"],
+            evidence_strength=case_data["evidence_strength"],
+            conflict_status=case_data["conflict_status"],
+            exact_specialist_available=case_data["exact_specialist_available"],
+            related_specialist_available=case_data["related_specialist_available"],
+            returning_client=case_data["returning_client"],
+            document_available_in_archive=case_data["document_available_in_archive"],
+        )
+
+        result = evaluate_case(sample)
+
+        print("=" * 50)
+        print("Case Evaluation Result")
+        print("=" * 50)
+        print(f"Case ID   : {result['case_id']}")
+        print(f"Decision  : {result['decision']}")
+        print(f"Flags     : {', '.join(result['flags']) if result['flags'] else 'None'}")
+        print(f"Reasoning : {result['reasoning']}")
+        print("=" * 50)

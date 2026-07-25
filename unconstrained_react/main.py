@@ -1,39 +1,15 @@
-import json
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from shared.tools import load_case
-from unconstrained_react.agent import run_agent
-
-
-def main():
-    print("=" * 60)
-    print("Law Firm Case Intake Evaluation")
-    print("Unconstrained ReAct Agent")
-    print("=" * 60)
-
-    case_id = input("\nEnter Case ID: ").strip()
-
-    try:
-        case = load_case(case_id)
-    except Exception as e:
-        print(f"\nError loading case: {e}")
-        return
-
-    if case is None:
-        print(f"\nCase '{case_id}' not found.")
-        return
-
-    print(f"\nEvaluating Case: {case['case_id']}...\n")
-
-    try:
-        result = run_agent(case)
-
-        print("=" * 60)
-        print("Evaluation Result")
-        print("=" * 60)
-        print(json.dumps(result, indent=4, ensure_ascii=False))
-
-    except Exception as e:
-        print(f"\nError during evaluation: {e}")
-
+from agent import run_agent
 
 if __name__ == "__main__":
-    main()
+    test_ids = ["CASE-001", "CASE-002", "CASE-003", "CASE-004"]
+
+    for case_id in test_ids:
+        print(f"\n--- {case_id} ---")
+        case = load_case(case_id)
+        result = run_agent(case)
+        print(result)

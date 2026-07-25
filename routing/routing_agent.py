@@ -110,27 +110,20 @@ def final_decision(result):
 
 # Test the Agent 
 if __name__ == "__main__":
+    
+    test_ids = ["CASE-001", "CASE-002", "CASE-003", "CASE-004"]
 
-    case = {
-        "case_id": "CASE001",
-        "case_type": "employment",
-        "days_until_deadline": 2,
-        "document_status": "missing_secondary",
-        "evidence_strength": "strong",
-        "conflict_status": "none",
-        "exact_specialist_available": False,
-        "related_specialist_available": True,
-        "returning_client": True,
-        "document_available_in_archive": True
-    }
+    for case_id in test_ids:
+        case = load_case(case_id)
 
-# Result
-    analysis = analyze_case(case)
+        print(f"\n--- {case_id} ---")
 
-    print("Gemini Analysis:")
-    print(json.dumps(analysis, indent=4))
+        analysis = analyze_case(case)
 
-    decision = final_decision(analysis)
+        print("Gemini Analysis:")
+        print(json.dumps(analysis, indent=4))
 
-    print("\nFinal Decision:")
-    print(decision)
+        decision = final_decision(analysis)
+
+        print("\nFinal Decision:")
+        print(decision)
